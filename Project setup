@@ -1,0 +1,112 @@
+============================================================
+PROJECT SETUP NOTES — AI TEXT SUMMARIZER
+============================================================
+
+SYSTEM INFO
+-----------
+OS: Windows 10
+Python: 3.14
+Editor: Notepad (saved files manually)
+
+
+STEP 1 — CREATE PROJECT FOLDER & VIRTUAL ENVIRONMENT
+-----------------------------------------------------
+cd C:\Users\Dell
+mkdir text-summarizer
+cd text-summarizer
+python -m venv venv
+venv\Scripts\activate
+
+
+STEP 2 — INSTALL REQUIRED LIBRARIES
+-------------------------------------
+pip install streamlit groq python-dotenv
+
+
+STEP 3 — GET GROQ API KEY
+--------------------------
+1. Go to https://console.groq.com
+2. Sign up with Google
+3. Click "API Keys" → "Create API Key"
+4. Copy the key
+
+
+STEP 4 — CREATE PROJECT FILES
+------------------------------
+Create these files inside text-summarizer folder:
+
+FILE 1: .env
+------------
+GROQ_API_KEY=your_groq_api_key_here
+
+FILE 2: .gitignore
+------------------
+venv/
+.env
+__pycache__/
+*.pyc
+
+FILE 3: app.py
+--------------
+Contains the full Streamlit app code
+
+IMPORTANT: Save files without .txt extension.
+In File Explorer → View → enable "File name extensions"
+Then rename:
+app.py.txt  →  app.py
+ENV.env.txt →  .env
+
+
+STEP 5 — RUN THE APP
+----------------------
+streamlit run app.py
+Open browser at: http://localhost:8501
+
+
+STEP 6 — STOP THE APP
+-----------------------
+Ctrl + C
+
+
+STEP 7 — HOW TO RUN AGAIN NEXT TIME
+--------------------------------------
+cd C:\Users\Dell\text-summarizer
+venv\Scripts\activate
+streamlit run app.py
+
+WARNING: Never run "python -m venv venv" again
+It will delete all installed packages!
+
+
+ERRORS FACED & FIXES
+----------------------
+ERROR: File does not exist: app.py
+FIX: File was saved as app.py.txt — renamed it
+
+ERROR: GROQ_API_KEY not set
+FIX: .env file was saved as ENV.env.txt — renamed it
+
+ERROR: model decommissioned
+FIX: Changed model from llama3-8b-8192 to llama-3.3-70b-versatile
+
+ERROR: Black screen on browser
+FIX: App was still loading — waited and refreshed with Ctrl+Shift+R
+
+
+FINAL FOLDER STRUCTURE
+------------------------
+text-summarizer/
+├── app.py          (Main app file)
+├── .env            (API key - never share this)
+├── .gitignore      (Tells Git what to ignore)
+└── venv/           (Virtual environment - dont touch)
+
+
+GITHUB UPLOAD
+--------------
+1. Go to your repo on GitHub
+2. Click "Add file" → "Upload files"
+3. Upload only: app.py and .gitignore
+4. Never upload: .env and venv/
+
+Repo link: https://github.com/pratyushysp/Ai-Text-Summarizer
